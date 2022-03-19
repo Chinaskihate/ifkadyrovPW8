@@ -13,12 +13,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-         
-         let window = UIWindow(windowScene: windowScene)
-         window.rootViewController = MoviesViewController()
-         self.window = window
-         window.makeKeyAndVisible()
+        guard let windowScene = (scene as? UIWindowScene) else {return}
+        
+        let window = UIWindow(windowScene: windowScene)
+        
+        let tabBarController = UITabBarController()
+        let viewControllers = [
+            UINavigationController(rootViewController: MoviesViewController()),
+            UINavigationController(rootViewController: SearchViewController())
+        ]
+        tabBarController.setViewControllers(viewControllers, animated: false)
+        let titles = ["Movies", "Search"]
+        let images = [UIImage(named: "movies"), UIImage(named: "search")]
+        guard let items = tabBarController.tabBar.items else {return}
+        for i in 0..<viewControllers.count {
+            viewControllers[i].title = titles[i]
+            items[i].image = images[i]
+        }
+        // let navigat = UINavigationController(rootViewController: tabBarController)
+        window.rootViewController = tabBarController
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

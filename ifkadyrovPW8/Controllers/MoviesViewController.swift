@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class MoviesViewController: UIViewController {
-    private let apiKey = "2cba74690481f329d0ee8f1aff8a7b1e"
     private let apiService = ApiService()
     private var movies: [Movie] = []
     private let tableView = UITableView()
