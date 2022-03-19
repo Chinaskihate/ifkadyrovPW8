@@ -10,8 +10,8 @@ import UIKit
 
 class MovieView: UITableViewCell {
     static let identifier = "MovieCell"
-    private let poster = UIImageView()
-    private let title = UILabel()
+    let poster = UIImageView()
+    let title = UILabel()
     
     init() {
         super.init(style: .default, reuseIdentifier: Self.identifier)
@@ -20,6 +20,11 @@ class MovieView: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: Self.identifier)
+        configureUI()
     }
     
     private func configureUI() {
@@ -32,7 +37,7 @@ class MovieView: UITableViewCell {
             poster.topAnchor.constraint(equalTo: topAnchor),
             poster.leadingAnchor.constraint(equalTo: leadingAnchor),
             poster.trailingAnchor.constraint(equalTo: trailingAnchor),
-            poster.heightAnchor.constraint(equalTo: heightAnchor),
+            poster.heightAnchor.constraint(equalToConstant: 500),
             
             title.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 10),
             title.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -40,5 +45,10 @@ class MovieView: UITableViewCell {
             title.heightAnchor.constraint(equalToConstant: 20),
         ])
         title.textAlignment = .center
+    }
+    
+    func configure(movie: Movie) {
+        title.text = movie.title
+        poster.image = movie.poster
     }
 }

@@ -14,6 +14,8 @@
 		409571AC27E66E870014D751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409571AA27E66E870014D751 /* LaunchScreen.storyboard */; };
 		409571B527E670190014D751 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571B427E670190014D751 /* MoviesViewController.swift */; };
 		409571B827E6709D0014D751 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571B727E6709D0014D751 /* MovieView.swift */; };
+		409571BD27E676300014D751 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571BC27E676300014D751 /* ApiService.swift */; };
+		409571C027E678C30014D751 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571BF27E678C30014D751 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		409571AD27E66E870014D751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		409571B427E670190014D751 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		409571B727E6709D0014D751 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
+		409571BC27E676300014D751 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		409571BF27E678C30014D751 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		4095719E27E66E860014D751 /* ifkadyrovPW8 */ = {
 			isa = PBXGroup;
 			children = (
+				409571BE27E678A90014D751 /* Models */,
+				409571BB27E676110014D751 /* Services */,
 				409571B627E670880014D751 /* Controls */,
 				409571B327E66FED0014D751 /* Controllers */,
 				4095719F27E66E860014D751 /* AppDelegate.swift */,
@@ -86,6 +92,24 @@
 			);
 			name = Controls;
 			path = ifkadyrovPW8/Controls;
+			sourceTree = SOURCE_ROOT;
+		};
+		409571BB27E676110014D751 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				409571BC27E676300014D751 /* ApiService.swift */,
+			);
+			name = Services;
+			path = ifkadyrovPW8/Services;
+			sourceTree = SOURCE_ROOT;
+		};
+		409571BE27E678A90014D751 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				409571BF27E678C30014D751 /* Movie.swift */,
+			);
+			name = Models;
+			path = ifkadyrovPW8/Models;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -157,8 +181,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409571C027E678C30014D751 /* Movie.swift in Sources */,
 				409571B827E6709D0014D751 /* MovieView.swift in Sources */,
 				409571A427E66E860014D751 /* ViewController.swift in Sources */,
+				409571BD27E676300014D751 /* ApiService.swift in Sources */,
 				409571A027E66E860014D751 /* AppDelegate.swift in Sources */,
 				409571A227E66E860014D751 /* SceneDelegate.swift in Sources */,
 				409571B527E670190014D751 /* MoviesViewController.swift in Sources */,
