@@ -12,10 +12,18 @@ class Movie {
     let title: String
     let posterPath: String?
     var poster: UIImage? = nil
+    let id: Int
+    let overview: String
+    let isAdult: Bool
+    let budget: Int
     
-    init(title: String, posterPath: String?) {
+    init(title: String, posterPath: String?, id: Int, overview: String = "", isAdult: Bool = true, budget: Int = 0) {
         self.title = title
         self.posterPath = posterPath
+        self.id = id
+        self.overview = overview
+        self.isAdult = isAdult
+        self.budget = budget
     }
     
     // TODO: relocate to apiservice

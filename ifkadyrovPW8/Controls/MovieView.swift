@@ -10,8 +10,10 @@ import UIKit
 
 class MovieView: UITableViewCell {
     static let identifier = "MovieCell"
+    var movieId: Int!
     let poster = UIImageView()
-    let title = UILabel()
+    let titleLabel = UILabel()
+    let button = UIButton()
     
     init() {
         super.init(style: .default, reuseIdentifier: Self.identifier)
@@ -29,9 +31,11 @@ class MovieView: UITableViewCell {
     
     private func configureUI() {
         poster.translatesAutoresizingMaskIntoConstraints = false
-        title.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
         addSubview(poster)
-        addSubview(title)
+        addSubview(titleLabel)
+        addSubview(button)
         
         NSLayoutConstraint.activate([
             poster.topAnchor.constraint(equalTo: topAnchor),
@@ -39,16 +43,49 @@ class MovieView: UITableViewCell {
             poster.trailingAnchor.constraint(equalTo: trailingAnchor),
             poster.heightAnchor.constraint(equalToConstant: 500),
             
-            title.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 10),
-            title.leadingAnchor.constraint(equalTo: leadingAnchor),
-            title.trailingAnchor.constraint(equalTo: trailingAnchor),
-            title.heightAnchor.constraint(equalToConstant: 20),
+            button.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 5),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            button.widthAnchor.constraint(equalToConstant: 80),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            
+            titleLabel.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -5),
+            titleLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            
         ])
-        title.textAlignment = .center
+        titleLabel.textAlignment = .center
+        button.setTitle("Info", for: .normal)
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
     func configure(movie: Movie) {
-        title.text = movie.title
+        titleLabel.text = movie.title
         poster.image = movie.poster
+        movieId = movie.id
     }
+    
+    @objc func didTapButton(_ sender: UIButton) {
+        let rootVC = MovieInfoController()
+        rootVC.title = titleLabel.text
+        rootVC.poster.image = poster.image
+        rootVC.movieId = movieId
+        let navVC = UINavigationController(rootViewController: rootVC)
+        
+        getCurrentVC()!.present(navVC, animated: true)
+    }
+    
+    private func getCurrentVC() -> UIViewController? {
+            if let rootController = UIApplication.shared.keyWindow?.rootViewController {
+                var currentController: UIViewController! = rootController
+                while( currentController.presentedViewController != nil ) {
+                    currentController = currentController.presentedViewController
+                }
+                return currentController
+            }
+            return nil
+        }
 }

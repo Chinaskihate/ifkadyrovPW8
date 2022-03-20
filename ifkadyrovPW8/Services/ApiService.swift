@@ -26,9 +26,11 @@ class ApiService {
             let movies: [Movie] = results.map { params in
                 let title = params["title"] as! String
                 let imagePath = params["poster_path"] as? String
+                let id = params["id"] as! Int
                 return Movie(
                     title: title,
-                    posterPath: imagePath
+                    posterPath: imagePath,
+                    id: id
                 )
             }
             print(movies)
@@ -70,9 +72,11 @@ class ApiService {
             let movies: [Movie] = results.map { params in
                 let title = params["title"] as! String
                 let imagePath = params["poster_path"] as? String
+                let id = params["id"] as! Int
                 return Movie(
                     title: title,
-                    posterPath: imagePath
+                    posterPath: imagePath,
+                    id: id
                 )
             }
             print(movies)
@@ -99,13 +103,48 @@ class ApiService {
             let movies: [Movie] = results.map { params in
                 let title = params["title"] as! String
                 let imagePath = params["poster_path"] as? String
+                let id = params["id"] as! Int
                 return Movie(
                     title: title,
-                    posterPath: imagePath
+                    posterPath: imagePath,
+                    id: id
                 )
             }
             DispatchQueue.main.async {
                 completion(movies)
+            }
+        })
+        searchSession.resume()
+    }
+    
+    public func getMovie(id: Int, completion: @escaping (Movie) -> Void){
+        if(searchSession != nil){
+            searchSession!.cancel()
+        }
+        guard let url = URL(string:"https://api.themoviedb.org/3/movie/\(id)?api_key=\(apiKey)&language=ru-RU".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)
+        else {return assertionFailure()}
+        searchSession = URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler: {data, _, _ in
+            guard
+                let data = data,
+                let params = try? JSONSerialization.jsonObject (with: data, options: []) as? [String: Any]
+            else { return }
+            let title = params["title"] as! String
+            let imagePath = params["poster_path"] as? String
+            let id = params["id"] as! Int
+            let overview = params["overview"] as! String
+            let isAdult = params["adult"] as! Bool
+            let budget = params["budget"] as! Int
+            let movie = Movie(
+                title: title,
+                posterPath: imagePath,
+                id: id,
+                overview: overview,
+                isAdult: isAdult,
+                budget: budget
+            )
+            print(movie)
+            DispatchQueue.main.async {
+                completion(movie)
             }
         })
         searchSession.resume()

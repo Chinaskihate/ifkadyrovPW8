@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4072F95527E780DE00686909 /* PaginationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F95427E780DE00686909 /* PaginationViewController.swift */; };
+		4072F95727E7A18800686909 /* MovieInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F95627E7A18800686909 /* MovieInfoController.swift */; };
 		409571A027E66E860014D751 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4095719F27E66E860014D751 /* AppDelegate.swift */; };
 		409571A227E66E860014D751 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571A127E66E860014D751 /* SceneDelegate.swift */; };
 		409571A427E66E860014D751 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571A327E66E860014D751 /* SearchViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		4072F95427E780DE00686909 /* PaginationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationViewController.swift; sourceTree = "<group>"; };
+		4072F95627E7A18800686909 /* MovieInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoController.swift; sourceTree = "<group>"; };
 		4095719C27E66E860014D751 /* ifkadyrovPW8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ifkadyrovPW8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4095719F27E66E860014D751 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		409571A127E66E860014D751 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				409571B427E670190014D751 /* MoviesViewController.swift */,
 				409571C127E6A26E0014D751 /* ListViewController.swift */,
 				4072F95427E780DE00686909 /* PaginationViewController.swift */,
+				4072F95627E7A18800686909 /* MovieInfoController.swift */,
 			);
 			name = Controllers;
 			path = ifkadyrovPW8/Controllers;
@@ -191,6 +194,7 @@
 				409571B827E6709D0014D751 /* MovieView.swift in Sources */,
 				4072F95527E780DE00686909 /* PaginationViewController.swift in Sources */,
 				409571A427E66E860014D751 /* SearchViewController.swift in Sources */,
+				4072F95727E7A18800686909 /* MovieInfoController.swift in Sources */,
 				409571BD27E676300014D751 /* ApiService.swift in Sources */,
 				409571A027E66E860014D751 /* AppDelegate.swift in Sources */,
 				409571A227E66E860014D751 /* SceneDelegate.swift in Sources */,

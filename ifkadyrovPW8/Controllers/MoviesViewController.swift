@@ -62,9 +62,9 @@ extension MoviesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieView.identifier, for: indexPath) as! MovieView
-        //let cell = MovieView()
+        cell.contentView.isUserInteractionEnabled = false
         cell.configure(movie: movies[indexPath.row])
-        print(cell.title.text)
+        print(cell.titleLabel.text)
         return cell
     }
 }
