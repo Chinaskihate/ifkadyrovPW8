@@ -13,7 +13,6 @@ class ListViewController: UIViewController {
     private var movies: [Movie] = []
     private var currentPage: Int = 1
     private let numberOfPages = 500
-    private let pageSlider = UISlider()
     private let tableView = UITableView()
     private var prevButton: UIBarButtonItem!
     private var nextButton: UIBarButtonItem!
@@ -41,14 +40,10 @@ class ListViewController: UIViewController {
                 }
             }
         }
-        
-        
-        // tableView.reloadData()
     }
     
     private func configureUI() {
         configureTableView()
-        //configurePageSlider()
         configureNavItem()
     }
     
@@ -114,40 +109,6 @@ class ListViewController: UIViewController {
             }
         }
     }
-    
-    private func configurePageSlider() {
-        navigationItem.titleView = pageSlider
-        pageSlider.minimumValue = 1
-        pageSlider.maximumValue = 10
-        pageSlider.isContinuous = false
-        pageSlider.addTarget(self, action: #selector(pageSliderValueDidChange), for: .valueChanged)
-    }
-    
-    @objc func pageSliderValueDidChange(_ sender: UISlider) {
-        let roundedStepValue = Int(round(sender.value))
-        sender.setValue(Float(roundedStepValue), animated: true)
-        //sender.value = Float(roundedStepValue)
-        if (roundedStepValue != currentPage) {
-            currentPage = roundedStepValue
-            DispatchQueue.global(qos: .background).async { [weak self] in
-                self?.apiService.loadMovies(page: self!.currentPage) { movies in
-                    self?.movies = movies
-                    DispatchQueue.main.async {
-                        self!.tableView.reloadData()
-                    }
-                    DispatchQueue.global(qos: .background).async { [weak self] in
-                        self!.apiService.loadImagesForMovies(self!.movies) { movies in
-                            self?.movies = movies
-                            DispatchQueue.main.async {
-                                self!.tableView.reloadData()
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        print("Slider step value \(Int(roundedStepValue))")
-    }
 }
 
 extension ListViewController: UITableViewDataSource {
@@ -157,7 +118,6 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieView.identifier, for: indexPath) as! MovieView
-        //let cell = MovieView()
         cell.configure(movie: movies[indexPath.row])
         print(cell.title.text)
         return cell
