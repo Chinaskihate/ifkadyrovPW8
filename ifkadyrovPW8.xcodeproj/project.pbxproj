@@ -16,6 +16,7 @@
 		409571B827E6709D0014D751 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571B727E6709D0014D751 /* MovieView.swift */; };
 		409571BD27E676300014D751 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571BC27E676300014D751 /* ApiService.swift */; };
 		409571C027E678C30014D751 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571BF27E678C30014D751 /* Movie.swift */; };
+		409571C227E6A26E0014D751 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409571C127E6A26E0014D751 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		409571B727E6709D0014D751 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		409571BC27E676300014D751 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		409571BF27E678C30014D751 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		409571C127E6A26E0014D751 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				409571A327E66E860014D751 /* SearchViewController.swift */,
 				409571B427E670190014D751 /* MoviesViewController.swift */,
+				409571C127E6A26E0014D751 /* ListViewController.swift */,
 			);
 			name = Controllers;
 			path = ifkadyrovPW8/Controllers;
@@ -187,6 +190,7 @@
 				409571BD27E676300014D751 /* ApiService.swift in Sources */,
 				409571A027E66E860014D751 /* AppDelegate.swift in Sources */,
 				409571A227E66E860014D751 /* SceneDelegate.swift in Sources */,
+				409571C227E6A26E0014D751 /* ListViewController.swift in Sources */,
 				409571B527E670190014D751 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

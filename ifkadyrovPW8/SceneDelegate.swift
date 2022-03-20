@@ -20,11 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
         let viewControllers = [
             UINavigationController(rootViewController: MoviesViewController()),
-            UINavigationController(rootViewController: SearchViewController())
+            UINavigationController(rootViewController: SearchViewController()),
+            UINavigationController(rootViewController: ListViewController())
         ]
         tabBarController.setViewControllers(viewControllers, animated: false)
-        let titles = ["Movies", "Search"]
-        let images = [UIImage(named: "movies"), UIImage(named: "search")]
+        let titles = ["Movies", "Search", "List"]
+        let images = [UIImage(named: "movies"), UIImage(named: "search"), UIImage(named: "list")]
         guard let items = tabBarController.tabBar.items else {return}
         for i in 0..<viewControllers.count {
             viewControllers[i].title = titles[i]
